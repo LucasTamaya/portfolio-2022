@@ -9,6 +9,35 @@
   transition: width 0.2s ease;
 }
 
+@mixin paragraphContainerTemplate($font-size) {
+  font-size: $font-size;
+  font-family: $primary-font;
+  color: $primary-color-one;
+  background-color: $primary-color-two;
+  border-radius: 5px;
+  padding: 7px;
+  transform: translateX(-100vw);
+}
+
+@mixin projectCardTemplate($bg-color) {
+  width: 280px;
+  height: 300px;
+  background-color: $bg-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &:hover{
+    border: none;
+  }
+
+  &:hover .projectCard-details{
+    opacity: 1;
+    height: 100%;
+  }
+}
+
 // Font Awesome SCSS
 // mixins
 // --------------------------
