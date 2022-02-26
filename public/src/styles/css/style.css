@@ -9052,6 +9052,7 @@ body {
   overflow-x: hidden;
   max-width: 1024px;
   margin: 0 auto;
+  min-height: 100vh;
   padding: 0 20px;
 }
 
@@ -9062,6 +9063,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 25px;
+  position: relative;
 }
 
 .headerContainer-icon {
@@ -9080,9 +9082,9 @@ body {
 .navContainer-hidden {
   position: absolute;
   top: 10vh;
-  right: 100%;
+  right: 100vw;
   border-radius: 25px;
-  width: 70%;
+  width: 100%;
   height: 88vh;
   display: flex;
   flex-direction: column;
@@ -9090,12 +9092,12 @@ body {
   justify-content: center;
   row-gap: 75px;
   background-color: #ffab4c;
-  transition: 0.3s ease;
+  transition: 0.5s ease;
   z-index: 100;
 }
 
 .navContainer-visible {
-  right: 20px;
+  right: 0;
 }
 
 .navItem {
@@ -9143,7 +9145,7 @@ body {
   display: flex;
   justify-content: center;
   opacity: 0;
-  animation: imgTransitionLoad 1s ease forwards;
+  animation: transitionOpacity 1s ease forwards;
 }
 
 .imgContainer-img {
@@ -9154,6 +9156,18 @@ body {
   background-size: cover;
   background-position: center;
   border: 2px solid #ffab4c;
+}
+@media screen and (min-width: 640px) {
+  .imgContainer-img {
+    width: 180px;
+    height: 180px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .imgContainer-img {
+    width: 230px;
+    height: 230px;
+  }
 }
 
 .indexParagraphContainer {
@@ -9313,7 +9327,7 @@ body {
   line-height: 27px;
 }
 
-.aboutParagraphContainer-challenge {
+.aboutParagraphContainer-link {
   color: #142f43;
   font-weight: 700;
   text-decoration: underline;
@@ -9327,6 +9341,12 @@ body {
   align-items: center;
   row-gap: 30px;
   margin-bottom: 20px;
+  opacity: 0;
+  animation: transitionOpacity 0.8s ease forwards;
+}
+
+.allProjectsContainer.out {
+  animation: transitionOpacityOut 0.5s ease forwards;
 }
 
 .projectCard {
@@ -9338,39 +9358,59 @@ body {
 }
 
 .projectCard-imgContainer.discord {
-  flex: 0.5;
+  height: 225px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #5865f2;
 }
+@media screen and (min-width: 1024px) {
+  .projectCard-imgContainer.discord {
+    height: 100%;
+  }
+}
 
 .projectCard-imgContainer.chat {
-  flex: 0.5;
+  height: 225px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #fff;
 }
+@media screen and (min-width: 1024px) {
+  .projectCard-imgContainer.chat {
+    height: 100%;
+  }
+}
 
 .projectCard-imgContainer.todo {
-  flex: 0.5;
+  height: 225px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #6d28d9;
 }
+@media screen and (min-width: 1024px) {
+  .projectCard-imgContainer.todo {
+    height: 100%;
+  }
+}
 
 .projectCard-imgContainer.linkedin {
-  flex: 0.5;
+  height: 225px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #0072b1;
+}
+@media screen and (min-width: 1024px) {
+  .projectCard-imgContainer.linkedin {
+    height: 100%;
+  }
 }
 
 .projectCard-img {
@@ -9378,8 +9418,8 @@ body {
 }
 
 .projectCard-details {
-  flex: 0.5;
   width: 250px;
+  height: 225px;
 }
 
 .projectCard-details {
@@ -9424,6 +9464,34 @@ body {
     justify-content: center;
     column-gap: 30px;
   }
+
+  .projectCard:nth-child(odd) {
+    flex-direction: column-reverse;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .projectCard {
+    width: 250px;
+    height: 270px;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .projectCard:hover {
+    border: none;
+  }
+  .projectCard:hover .projectCard-details {
+    opacity: 1;
+    height: 100%;
+  }
+
+  .projectCard-details {
+    position: absolute;
+    height: 0;
+    opacity: 0;
+  }
 }
 @keyframes transitionLoad {
   from {
@@ -9449,12 +9517,20 @@ body {
     transform: translateX(0);
   }
 }
-@keyframes imgTransitionLoad {
+@keyframes transitionOpacity {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+@keyframes transitionOpacityOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 

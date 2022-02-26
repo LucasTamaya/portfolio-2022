@@ -26,7 +26,7 @@ body {
   overflow-x: hidden;
   max-width: 1024px;
   margin: 0 auto;
-  // height: 100vh;
+  min-height: 100vh;
   // background-color: blue;
   padding: 0 20px;
 }
@@ -39,6 +39,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 25px;
+  position: relative;
 }
 
 .headerContainer-icon {
@@ -59,9 +60,10 @@ body {
 .navContainer-hidden {
   position: absolute;
   top: 10vh;
-  right: 100%;
+  right: 100vw;
   border-radius: 25px;
-  width: 70%;
+  width: 100%;
+  // width: 70%
   height: 88vh;
   display: flex;
   flex-direction: column;
@@ -69,12 +71,13 @@ body {
   justify-content: center;
   row-gap: 75px;
   background-color: $primary-color-two;
-  transition: 0.3s ease;
+  transition: 0.5s ease;
   z-index: 100;
 }
 
 .navContainer-visible {
-  right: 20px;
+  // right: 20px;
+  right: 0;
 }
 
 .navItem {
@@ -126,7 +129,7 @@ body {
   display: flex;
   justify-content: center;
   opacity: 0;
-  animation: imgTransitionLoad 1s ease forwards;
+  animation: transitionOpacity 1s ease forwards;
 }
 
 .imgContainer-img {
@@ -137,6 +140,16 @@ body {
   background-size: cover;
   background-position: center;
   border: 2px solid $primary-color-two;
+
+  @media screen and (min-width: 640px) {
+    width: 180px;
+    height: 180px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 230px;
+    height: 230px;
+  }
 }
 
 // paragraph index
@@ -276,7 +289,7 @@ body {
   line-height: 27px;
 }
 
-.aboutParagraphContainer-challenge {
+.aboutParagraphContainer-link {
   color: $primary-color-one;
   font-weight: 700;
   text-decoration: underline;
@@ -284,7 +297,6 @@ body {
 
 // Projets page
 .allProjectsContainer {
-  // background-color: red;
   margin-top: 50px;
   display: flex;
   flex-direction: column;
@@ -292,41 +304,47 @@ body {
   align-items: center;
   row-gap: 30px;
   margin-bottom: 20px;
+  opacity: 0;
+  animation: transitionOpacity 0.8s ease forwards;
 }
 
-.projectCard{
-  // border: 3px solid red;
+.allProjectsContainer.out {
+  // opacity: 1;
+  animation: transitionOpacityOut 0.5s ease forwards;
+}
+
+.projectCard {
   width: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 450px;
-  // border: 3px solid red;
 }
 
-.projectCard-imgContainer.discord{
-  @include imgContainerTemplate(#5865f2)
+.projectCard-imgContainer.discord {
+  @include imgContainerTemplate(#5865f2);
 }
 
-.projectCard-imgContainer.chat{
-  @include imgContainerTemplate(#fff)
+.projectCard-imgContainer.chat {
+  @include imgContainerTemplate(#fff);
 }
 
-.projectCard-imgContainer.todo{
-  @include imgContainerTemplate(#6d28d9)
+.projectCard-imgContainer.todo {
+  @include imgContainerTemplate(#6d28d9);
 }
 
-.projectCard-imgContainer.linkedin{
-  @include imgContainerTemplate(#0072b1)
+.projectCard-imgContainer.linkedin {
+  @include imgContainerTemplate(#0072b1);
 }
 
 .projectCard-img {
   width: 60px;
 }
 
-.projectCard-details{
-  flex: 0.5;
+.projectCard-details {
+  // flex: 0.5;
   width: 250px;
+  height: 225px;
 }
 
 // .discord {
@@ -345,7 +363,6 @@ body {
 // .linkedin {
 //   @include projectCardTemplate(#0072b1);
 // }
-
 
 .projectCard-details {
   // position: absolute;
@@ -396,6 +413,39 @@ body {
     justify-content: center;
     column-gap: 30px;
   }
+
+  .projectCard {
+    &:nth-child(odd) {
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .projectCard {
+    width: 250px;
+    height: 270px;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &:hover {
+      border: none;
+    }
+
+    &:hover .projectCard-details {
+      opacity: 1;
+      height: 100%;
+    }
+  }
+
+  .projectCard-details {
+    position: absolute;
+    height: 0;
+    opacity: 0;
+  }
 }
 
 // animation au chargement de la fenêtre
@@ -428,12 +478,22 @@ body {
   }
 }
 
-// animation d'apparition pour la photo
-@keyframes imgTransitionLoad {
+// animation d'apparition avec l'opacité
+@keyframes transitionOpacity {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+// animation de disparition avec l'opacité
+@keyframes transitionOpacityOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

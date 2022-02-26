@@ -39,13 +39,17 @@
 // }
 
 @mixin imgContainerTemplate($bg-color) {
-  flex: 0.5;
-  // height: 100%;
+  // flex: 0.5;
+  height: 225px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: $bg-color;
+
+  @media screen and (min-width: 1024px) {
+    height: 100%;
+  }
 }
 
 // Font Awesome SCSS
