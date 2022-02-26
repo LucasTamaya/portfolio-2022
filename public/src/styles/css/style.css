@@ -9330,15 +9330,16 @@ body {
 }
 
 .projectCard {
-  width: 100%;
+  width: 250px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  height: 200px;
+  height: 450px;
 }
 
 .projectCard-imgContainer.discord {
-  flex: 0.4;
-  height: 100%;
+  flex: 0.5;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9346,8 +9347,8 @@ body {
 }
 
 .projectCard-imgContainer.chat {
-  flex: 0.4;
-  height: 100%;
+  flex: 0.5;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9355,8 +9356,8 @@ body {
 }
 
 .projectCard-imgContainer.todo {
-  flex: 0.4;
-  height: 100%;
+  flex: 0.5;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9364,8 +9365,8 @@ body {
 }
 
 .projectCard-imgContainer.linkedin {
-  flex: 0.4;
-  height: 100%;
+  flex: 0.5;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9377,7 +9378,8 @@ body {
 }
 
 .projectCard-details {
-  flex: 0.6;
+  flex: 0.5;
+  width: 250px;
 }
 
 .projectCard-details {
@@ -9388,7 +9390,6 @@ body {
   row-gap: 15px;
   background-color: #ffab4c;
   padding: 10px;
-  height: 100%;
   transition: 0.3s ease;
 }
 
