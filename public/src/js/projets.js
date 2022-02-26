@@ -22,3 +22,4 @@ menuIcon.addEventListener("click", () => {
     return (isMenuOpen = false);
   }
 });
+

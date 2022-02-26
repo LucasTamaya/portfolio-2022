@@ -291,48 +291,81 @@ body {
   justify-content: center;
   align-items: center;
   row-gap: 30px;
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
 
-.projectCard-discord {
-  @include projectCardTemplate(#5865f2);
+.projectCard{
+  // border: 3px solid red;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 200px;
 }
 
-.projectCard-chatApp{
-  @include projectCardTemplate(#fff);
-  border: 7px solid #005b96;
+.projectCard-imgContainer.discord{
+  @include imgContainerTemplate(#5865f2)
 }
 
-.projectCard-todoList{
-  @include projectCardTemplate(#6D28D9)
+.projectCard-imgContainer.chat{
+  @include imgContainerTemplate(#fff)
 }
 
-.projectCard-linkedin{
-  @include projectCardTemplate(#0072b1)
+.projectCard-imgContainer.todo{
+  @include imgContainerTemplate(#6d28d9)
+}
+
+.projectCard-imgContainer.linkedin{
+  @include imgContainerTemplate(#0072b1)
 }
 
 .projectCard-img {
-  width: 100px;
+  width: 60px;
 }
 
+.projectCard-details{
+  flex: 0.6;
+}
+
+// .discord {
+//   @include projectCardTemplate(#5865f2);
+// }
+
+// .chatApp {
+//   @include projectCardTemplate(#fff);
+//   // border: 7px solid #005b96;
+// }
+
+// .todoList {
+//   @include projectCardTemplate(#6d28d9);
+// }
+
+// .linkedin {
+//   @include projectCardTemplate(#0072b1);
+// }
+
+
 .projectCard-details {
-  position: absolute;
+  // position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   row-gap: 15px;
   background-color: $primary-color-two;
-  width: 100%;
-  height: 0;
-  opacity: 0;
+  // width: 100%;
+  // flex: 0.6;
+  padding: 10px;
+  height: 100%;
+  // height: 0;
+  // opacity: 0;
   transition: 0.3s ease;
 }
 
 .projectCard-details-h1 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   font-family: $primary-font;
   color: $primary-color-one;
+  text-align: center;
 }
 
 .projectCard-details-description {
@@ -350,6 +383,15 @@ body {
 
   span {
     font-weight: 700;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .allProjectsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    justify-content: center;
+    column-gap: 30px;
   }
 }
 

@@ -9329,97 +9329,74 @@ body {
   margin-bottom: 20px;
 }
 
-.projectCard-discord {
-  width: 280px;
-  height: 300px;
+.projectCard {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 200px;
+}
+
+.projectCard-imgContainer.discord {
+  flex: 0.4;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #5865f2;
+}
+
+.projectCard-imgContainer.chat {
+  flex: 0.4;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-}
-.projectCard-discord:hover {
-  border: none;
-}
-.projectCard-discord:hover .projectCard-details {
-  opacity: 1;
-  height: 100%;
-}
-
-.projectCard-chatApp {
-  width: 280px;
-  height: 300px;
   background-color: #fff;
+}
+
+.projectCard-imgContainer.todo {
+  flex: 0.4;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  border: 7px solid #005b96;
-}
-.projectCard-chatApp:hover {
-  border: none;
-}
-.projectCard-chatApp:hover .projectCard-details {
-  opacity: 1;
-  height: 100%;
+  background-color: #6d28d9;
 }
 
-.projectCard-todoList {
-  width: 280px;
-  height: 300px;
-  background-color: #6D28D9;
+.projectCard-imgContainer.linkedin {
+  flex: 0.4;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-}
-.projectCard-todoList:hover {
-  border: none;
-}
-.projectCard-todoList:hover .projectCard-details {
-  opacity: 1;
-  height: 100%;
-}
-
-.projectCard-linkedin {
-  width: 280px;
-  height: 300px;
   background-color: #0072b1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-.projectCard-linkedin:hover {
-  border: none;
-}
-.projectCard-linkedin:hover .projectCard-details {
-  opacity: 1;
-  height: 100%;
 }
 
 .projectCard-img {
-  width: 100px;
+  width: 60px;
 }
 
 .projectCard-details {
-  position: absolute;
+  flex: 0.6;
+}
+
+.projectCard-details {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   row-gap: 15px;
   background-color: #ffab4c;
-  width: 100%;
-  height: 0;
-  opacity: 0;
+  padding: 10px;
+  height: 100%;
   transition: 0.3s ease;
 }
 
 .projectCard-details-h1 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   font-family: "Sora", sans-serif;
   color: #142f43;
+  text-align: center;
 }
 
 .projectCard-details-description {
@@ -9439,6 +9416,14 @@ body {
   font-weight: 700;
 }
 
+@media screen and (min-width: 640px) {
+  .allProjectsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    justify-content: center;
+    column-gap: 30px;
+  }
+}
 @keyframes transitionLoad {
   from {
     transform: translateX(-100vw);
