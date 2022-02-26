@@ -275,7 +275,7 @@ body {
 // About page
 .aboutParagraphContainer {
   width: 100%;
-  height: 90vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -284,7 +284,7 @@ body {
 }
 
 .aboutParagraphContainer-p {
-  @include paragraphContainerTemplate(1.8rem);
+  @include paragraphContainerTemplate(1.3rem);
   text-align: center;
   line-height: 27px;
 }
